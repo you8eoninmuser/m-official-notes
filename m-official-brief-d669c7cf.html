@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识卡片 · mk体育</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: #f3f4f6;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #1e1e2a;
+            line-height: 1.6;
+            padding: 1.8rem 1.2rem;
+        }
+
+        .page-wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* 目录感标题 */
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            color: #3a3f4b;
+            border-bottom: 1px solid #d1d5db;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.6rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .section-title::before {
+            content: "▍";
+            font-weight: 300;
+            color: #6b7280;
+        }
+
+        /* 卡片系统 — 浅灰+细边框+柔和阴影 */
+        .card-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e2e6ed;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02), 0 1px 3px rgba(0,0,0,0.03);
+            padding: 1.6rem 1.8rem;
+            transition: box-shadow 0.15s ease;
+        }
+        .card:hover {
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04), 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .card h2 {
+            font-size: 1.2rem;
+            font-weight: 550;
+            color: #1f2937;
+            margin-bottom: 0.9rem;
+        }
+
+        .card h3 {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #2d3748;
+            margin: 1.1rem 0 0.4rem 0;
+        }
+
+        .card p {
+            margin-bottom: 0.8rem;
+            color: #2d3748;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .card ul {
+            list-style: none;
+            padding-left: 0.2rem;
+        }
+
+        .card li {
+            position: relative;
+            padding-left: 1.2rem;
+            margin-bottom: 0.4rem;
+            color: #2f3948;
+        }
+
+        .card li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: #8c97a8;
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.8rem;
+            margin-top: 0.3rem;
+        }
+
+        .tag {
+            background: #f0f2f5;
+            border: 1px solid #dadfe7;
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            font-size: 0.85rem;
+            color: #374151;
+        }
+
+        /* 提示区微装饰 */
+        .note-box {
+            background: #f8fafc;
+            border-left: 3px solid #9aa6b9;
+            padding: 0.9rem 1.2rem;
+            border-radius: 8px;
+            margin: 0.9rem 0 0 0;
+            font-size: 0.95rem;
+        }
+
+        .inline-link {
+            color: #2563eb;
+            text-decoration: none;
+            border-bottom: 1px dotted #93c0ff;
+            transition: border 0.1s;
+        }
+        .inline-link:hover {
+            border-bottom: 1px solid #1d4ed8;
+            color: #1d4ed8;
+        }
+
+        /* 两列布局（宽屏） */
+        .dual-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        @media (min-width: 720px) {
+            .dual-col {
+                flex-direction: row;
+            }
+            .dual-col .card {
+                flex: 1;
+            }
+        }
+
+        /* 脚注细线 */
+        .footnote {
+            margin-top: 2.5rem;
+            font-size: 0.8rem;
+            color: #6b7280;
+            text-align: center;
+            border-top: 1px solid #e0e4ea;
+            padding-top: 1.5rem;
+        }
+
+        /* 响应式小屏微调 */
+        @media (max-width: 480px) {
+            body { padding: 1rem 0.8rem; }
+            .card { padding: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- 标题区（目录入口感） -->
+    <div style="margin-bottom: 2rem;">
+        <p style="font-size: 0.85rem; color: #6b7280; letter-spacing: 0.05em; margin-bottom: 0.1rem;">知识库 · 索引</p>
+        <h1 style="font-weight: 500; font-size: 1.7rem; color: #111827;">信息对照 · <a href="https://m-official-mksport.com" class="inline-link" style="font-weight: 500;">mk体育</a></h1>
+        <p style="color: #4b5563; margin-top: 0.2rem; max-width: 680px;">日常查询、定义对照与延伸阅读的轻量卡片集。</p>
+    </div>
+
+    <!-- 主卡片网格 -->
+    <div class="card-grid">
+
+        <!-- 说明区：基础概念与范围 -->
+        <div class="card">
+            <div class="section-title">说明 · 范畴</div>
+            <h2>什么是 mk体育 的信息定位</h2>
+            <p>面向日常信息查询与快速对照的场景，<a href="https://m-official-mksport.com" class="inline-link">mk体育</a> 所涉及的内容维度通常包含赛事动态、基础规则与常见术语。以下卡片整理了该领域内一些可供延伸阅读的知识侧面，方便需要时查阅。</p>
+            <div style="margin-top: 0.6rem; display: flex; flex-wrap: wrap; gap: 0.4rem 0.8rem;">
+                <span class="tag">赛事结构</span>
+                <span class="tag">术语对照</span>
+                <span class="tag">历史沿革</span>
+                <span class="tag">规则简述</span>
+            </div>
+        </div>
+
+        <!-- 双列：介绍区 + 场景区 -->
+        <div class="dual-col">
+            <!-- 介绍区：核心特点 -->
+            <div class="card">
+                <div class="section-title">介绍 · 特征</div>
+                <h2>几个可关注的侧面</h2>
+                <ul>
+                    <li><strong>分类体系</strong> — 不同项目有相对独立的术语与数据习惯，分类查阅能减少混淆。</li>
+                    <li><strong>版本与规则迭代</strong> — 部分运动规则的修订周期较短，信息源时效性值得留意。</li>
+                    <li><strong>跨项目对照</strong> — 计分方式、场地参数、裁判术语等存在横向可比性，适合对比阅读。</li>
+                </ul>
+                <p style="margin-top: 0.8rem; font-size: 0.95rem;">上述特征在日常查询中较常出现，可作为延伸阅读的切入点。</p>
+            </div>
+
+            <!-- 场景区：日常查询场景 -->
+            <div class="card">
+                <div class="section-title">场景 · 用途</div>
+                <h2>常见查阅场景</h2>
+                <ul>
+                    <li>快速确认某条规则或赛制的具体表述</li>
+                    <li>对比不同来源对同一术语的定义差异</li>
+                    <li>阅读赛事回顾时，核对基础背景信息</li>
+                    <li>作为延伸阅读的起点，查找关联条目</li>
+                </ul>
+                <div class="note-box">
+                    💡 提示：查阅时建议结合多个来源交叉比对，尤其是规则类信息。
+                </div>
+            </div>
+        </div>
+
+        <!-- 提示区 + 相关信息区（混合卡片） -->
+        <div class="dual-col">
+            <!-- 提示区：使用建议 -->
+            <div class="card">
+                <div class="section-title">提示 · 注意</div>
+                <h2>信息查询中的几点提醒</h2>
+                <p>体育领域的术语、赛制与数据时常更新，以下习惯或许有帮助：</p>
+                <ul>
+                    <li>优先参考运动协会或赛事官方发布的基础文档</li>
+                    <li>留意信息的发布年份与版本说明</li>
+                    <li>对于非中文来源的术语，可留意通用译名与习惯表达</li>
+                </ul>
+                <p style="margin-top: 0.6rem; font-size: 0.9rem;">如果希望系统了解某项目，可以从 <a href="https://m-official-mksport.com" class="inline-link">mk体育</a> 的基础板块开始延伸。</p>
+            </div>
+
+            <!-- 相关信息区：FAQ摘要 + 延伸方向 -->
+            <div class="card">
+                <div class="section-title">相关信息 · 延伸</div>
+                <h2>常见疑问摘要</h2>
+                <p style="font-weight: 450; margin-bottom: 0.2rem;">「规则条目太多，如何快速查找？」</p>
+                <p style="font-size: 0.95rem; margin-bottom: 0.8rem;">按项目或关键词分类索引是常用方式，可先定位大类再缩小范围。</p>
+                <p style="font-weight: 450; margin-bottom: 0.2rem;">「术语在不同运动中有不同含义吗？」</p>
+                <p style="font-size: 0.95rem; margin-bottom: 0.8rem;">是的，例如“罚球”“加时”等词在不同项目里细节差异明显，建议在具体语境中理解。</p>
+                <p style="font-size: 0.92rem; border-top: 1px solid #e4e9f0; padding-top: 0.8rem; margin-top: 0.4rem;">延伸方向：规则沿革 · 赛事体系 · 数据记录方式 · 裁判术语集</p>
+            </div>
+        </div>
+
+        <!-- 额外一个轻提示卡片（目录感延续） -->
+        <div class="card" style="background: #fafbfc; border: 1px solid #e6eaf0;">
+            <div style="display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;">
+                <span style="font-weight: 500; font-size: 0.95rem; color: #374151;">📋 信息对照卡</span>
+                <span style="font-size: 0.85rem; color: #6b7280;">日常查询 · 延伸阅读</span>
+                <span style="font-size: 0.85rem; color: #6b7280; margin-left: auto;"><a href="https://m-official-mksport.com" class="inline-link" style="border-bottom: none;">mk体育</a> · 知识库入口</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 脚注 -->
+    <div class="footnote">
+        本页为信息索引 · 内容仅供参考 · 具体规则以官方发布为准
+    </div>
+
+</div>
+</body>
+</html>
